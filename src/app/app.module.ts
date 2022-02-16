@@ -1,16 +1,43 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { PersonaComponent } from './personas/persona/persona.component';
+import { PersonaFormComponent } from './personas/persona-form/persona-form.component';
+import { LogginService } from './LogginService.service';
+import { PersonasService } from './Personas.service';
+import { PersonasComponent } from './personas/personas.component';
+import { ErrorComponent } from './error/error.component';
+import { DataServices } from './data.services';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
+import { LoginGuardian } from './login/login-guardian.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonaComponent,
+    PersonaFormComponent,
+    PersonasComponent,
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LogginService,
+    PersonasService,
+    DataServices,
+    LoginService,
+    LoginGuardian
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
